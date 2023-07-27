@@ -7,7 +7,6 @@ import DefaultData from './default.js';
 import Router from './routes/route.js';
 import {v4 as uuid} from 'uuid';
 const app = express();
-const cors = require('cors');
 const BASE_URL= process.env.BASE_URL;
 dotenv.config();
 
