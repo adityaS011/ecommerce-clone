@@ -15,6 +15,12 @@ dotenv.config();
 
 
 app.use(cors());
+app.get('/', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.send('Hello, world!');
+});
 app.use(bodyParser.json({ extended: true}))
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use('/', Router);
