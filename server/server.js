@@ -11,16 +11,10 @@ const BASE_URL= process.env.BASE_URL;
 dotenv.config();
 
 
-const corsOptions = {
-  origin: 'https://main--dazzling-malabi-099c4c.netlify.app/',
-  allowCredentials: true,
-  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
-  allowedMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-};
 
-const corsMiddleware = cors(corsOptions);
 
-app.use(corsMiddleware);
+
+app.use(cors());
 app.use(bodyParser.json({ extended: true}))
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use('/', Router);
