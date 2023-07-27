@@ -13,7 +13,7 @@ dotenv.config();
 
 
 const corsOptions = {
-  origin: '*',
+  origin: 'https://main--dazzling-malabi-099c4c.netlify.app/',
   allowCredentials: true,
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
   allowedMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
