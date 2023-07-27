@@ -10,12 +10,12 @@ const app = express();
 const BASE_URL= process.env.BASE_URL;
 dotenv.config();
 
-app.use(cors(
-    {
-        origin: [""],
-        methods: ["POST","GET"],
-        credentials: true
-    }
+const corsOptions = {
+  origin: 'https://main--dazzling-malabi-099c4c.netlify.app',
+  allowedHeaders: ['Authorization', 'Content-Type']
+};
+
+app.use(cors(corsOptions));
 ));
 app.use(bodyParser.json({ extended: true}))
 app.use(bodyParser.urlencoded({ extended: true}))
