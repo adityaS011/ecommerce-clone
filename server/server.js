@@ -12,8 +12,16 @@ const BASE_URL= process.env.BASE_URL;
 dotenv.config();
 
 
+const corsOptions = {
+  origin: '*',
+  allowCredentials: true,
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+  allowedMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+};
 
-app.use(cors());
+const corsMiddleware = cors(corsOptions);
+
+app.use(corsMiddleware);
 app.use(bodyParser.json({ extended: true}))
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use('/', Router);
