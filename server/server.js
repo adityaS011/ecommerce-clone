@@ -7,16 +7,13 @@ import DefaultData from './default.js';
 import Router from './routes/route.js';
 import {v4 as uuid} from 'uuid';
 const app = express();
+const cors = require('cors');
 const BASE_URL= process.env.BASE_URL;
 dotenv.config();
 
-const corsOptions = {
-  origin: 'https://main--dazzling-malabi-099c4c.netlify.app',
-  allowedHeaders: ['Authorization', 'Content-Type']
-};
 
-app.use(cors(corsOptions));
-));
+
+app.use(cors());
 app.use(bodyParser.json({ extended: true}))
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use('/', Router);
