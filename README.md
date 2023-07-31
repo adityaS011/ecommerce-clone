@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Flipkart Clone Project - MERN Stack</title>
+
 </head>
 <body>
   <h1>Flipkart Clone Project - MERN Stack</h1>
