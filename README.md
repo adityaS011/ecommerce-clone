@@ -14,7 +14,7 @@ Admin panel: Admins can manage products, categories, and user orders through a d
 Installation
 To run this Flipkart clone on your local machine, follow these steps:
 
-Clone the repository: git clone https://github.com/intelligence2002/ecommerce-clone.git
+Clone the repository: git clone https://github.com/adityaS011/ecommerce-clone.git
 Change directory: cd ecommerce-clone
 Install server dependencies: cd server && npm install
 Install client dependencies: cd ../client && npm install
