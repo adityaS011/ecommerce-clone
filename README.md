@@ -61,50 +61,24 @@ Update the client with the production server URL (if different from the developm
 Project Structure:
 flipkart-clone/
   ├── client/
-  │    ├── public/
-  │    │    └── index.html
-  │    └── src/
-  │         ├── components/
-  │         │    ├── Cart.js
-  │         │    ├── Product.js
-  │         │    ├── ProductList.js
-  │         │    └── ...
-  │         ├── pages/
-  │         │    ├── Home.js
-  │         │    ├── ProductDetails.js
-  │         │    ├── CartPage.js
-  │         │    └── ...
-  │         ├── reducers/
-  │         │    ├── cartReducer.js
-  │         │    ├── productReducer.js
-  │         │    └── index.js
-  │         ├── actions/
-  │         │    ├── cartActions.js
-  │         │    ├── productActions.js
-  │         │    └── types.js
-  │         ├── store.js
-  │         ├── App.js
-  │         └── index.js
-  ├── server/
-  │    ├── models/
-  │    │    ├── Product.js
-  │    │    └── User.js
-  │    ├── routes/
-  │    │    ├── productRoutes.js
-  │    │    └── userRoutes.js
-  │    ├── controllers/
-  │    │    ├── productController.js
-  │    │    └── userController.js
-  │    ├── middleware/
-  │    │    ├── authMiddleware.js
-  │    │    └── ...
-  │    ├── config/
-  │    │    └── config.js
-  │    ├── server.js
-  │    └── index.js
-  ├── package.json
-  ├── package-lock.json
-  └── .env
+  |    ├── public/
+  |    ├── src/
+  |    |    ├── actions/            # Redux actions
+  |    |    ├── components/         # Reusable React components
+  |    |    ├── reducers/           # Redux reducers
+  |    |    ├── App.js              # Main App component
+  |    |    ├── index.js            # Entry point of the React app
+  |    |    └── ...
+  |    ├── package.json
+  |    ├── package-lock.json
+  |    └── ...
+  └── server/
+       ├── controllers/             # Express.js controllers
+       ├── models/                  # MongoDB models
+       ├── routes/                  # Express.js routes
+       ├── index.js                 # Entry point of the server
+       └── ...
+
 
 Contributions
 Contributions to this project are welcome! If you find any issues or have improvements to suggest, feel free to submit a pull request.
