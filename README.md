@@ -26,10 +26,11 @@ Make sure you have Node.js and MongoDB installed on your machine.
 Directory Structure
 php
 Copy code
+
 mern-flipkart-clone/
-├── client/             # Frontend (React.js) code
-├── server/             # Backend (Express.js) code
-└── README.md           # Project documentation (you are here!)
+├── client/           # Frontend (React.js) code
+├── server/           # Backend (Express.js) code
+└── README.md         # Project documentation (you are here!)
 Contributing
 Contributions to this Flipkart clone are welcome! If you find any issues or have improvements to suggest, feel free to create a pull request.
 
