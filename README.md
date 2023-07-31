@@ -24,8 +24,6 @@ Start the client: cd ../client && npm run dev
 Make sure you have Node.js and MongoDB installed on your machine.
 
 Directory Structure
-php
-Copy code
 
 mern-flipkart-clone/
 ├── client/           # Frontend (React.js) code
