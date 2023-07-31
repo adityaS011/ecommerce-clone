@@ -60,24 +60,27 @@ Update the client with the production server URL (if different from the developm
 
 Project Structure:
 flipkart-clone/
-  ├── client/
-  |    ├── public/
-  |    ├── src/
-  |    |    ├── actions/            # Redux actions
-  |    |    ├── components/         # Reusable React components
-  |    |    ├── reducers/           # Redux reducers
-  |    |    ├── App.js              # Main App component
-  |    |    ├── index.js            # Entry point of the React app
-  |    |    └── ...
-  |    ├── package.json
-  |    ├── package-lock.json
-  |    └── ...
-  └── server/
-       ├── controllers/             # Express.js controllers
-       ├── models/                  # MongoDB models
-       ├── routes/                  # Express.js routes
-       ├── index.js                 # Entry point of the server
-       └── ...
+  Project Structure:
+flipkart-clone/
+    ├── client/
+    |    ├── public/
+    |    ├── src/
+    |    |    ├── actions/            # Redux actions
+    |    |    ├── components/         # Reusable React components
+    |    |    ├── reducers/           # Redux reducers
+    |    |    ├── App.js              # Main App component
+    |    |    ├── index.js            # Entry point of the React app
+    |    |    └── ...
+    |    ├── package.json
+    |    ├── package-lock.json
+    |    └── ...
+    └── server/
+         ├── controllers/             # Express.js controllers
+         ├── models/                  # MongoDB models
+         ├── routes/                  # Express.js routes
+         ├── index.js                 # Entry point of the server
+         └── ...
+
 
 
 Contributions
