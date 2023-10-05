@@ -35,7 +35,7 @@ color: #2874f0;
 background: #ffffff;
 text-transform: none;
 padding: 5px 40px;
-border-radius: 2px;
+border-radius: 8px;
 box-shadow: none;
 font-weight: 600;
 height:32px;
@@ -58,7 +58,7 @@ const CustomButtons = () => {
 
             }
             
-            <Typography style={{marginTop: 3, width: 135}}>Become a seller</Typography>
+            <Typography style={{marginTop: 3, width: 135}}>Become a Seller</Typography>
             <Typography style={{marginTop: 3}}>More</Typography>
 
             <Container to='/cart'>
