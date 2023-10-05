@@ -40,6 +40,12 @@ box-shadow: none;
 font-weight: 600;
 height:32px;
 
+&:hover {
+        color: white;
+        background: #2a55e5;
+        border-color: #2a55e5;
+        border-radius: 8px;
+    }
 `
 
 
