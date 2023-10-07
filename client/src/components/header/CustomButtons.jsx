@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../../context/DataProvider";
 import Profile from "./Profile";
 
+
+
 const Wrapper = styled(Box)(({ theme }) => ({
   margin: "0 2% 0 auto",
   display: "flex",
@@ -49,18 +51,17 @@ const LoginButton = styled(Button)`
 `;
 
 const CustomButtons = () => {
+
   const { account, setAccount } = useContext(DataContext);
-  const [open, setOpen] = useState(false);
+
   const { cartItems } = useSelector((state) => state.cart);
-  const openDialog = () => {
-    setOpen(true);
-  };
+ 
   return (
     <Wrapper>
       {account ? (
         <Profile account={account} setAccount={setAccount} />
       ) : (
-        <LoginButton variant="contained" onClick={() => openDialog()}>
+        <LoginButton variant="contained" onClick={() =>window.location="/login" }>
           Login
         </LoginButton>
       )}
@@ -80,7 +81,7 @@ const CustomButtons = () => {
         </Badge>
         <Typography style={{ marginLeft: "5px" }}>Cart</Typography>
       </Container>
-      <LoginDialog open={open} setOpen={setOpen} />
+      
     </Wrapper>
   );
 };

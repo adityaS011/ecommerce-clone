@@ -76,6 +76,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <Toolbar style={{ minHeight: 55 }}>
+      
         <MenuButton color="inherit" onClick={handleOpen}>
           <Menu />
         </MenuButton>
@@ -83,6 +84,7 @@ const Header = () => {
         <Drawer open={open} onClose={handleClose}>
           {list()}
         </Drawer>
+
         <Component to="/">
           <img src={logoURL} alt="logo" style={{ width: 75 }} />
           <Box style={{ display: "flex" }}>
@@ -95,11 +97,15 @@ const Header = () => {
             <PlusImage src={subURL} alt="sub-logo" />
           </Box>
         </Component>
+        
         <Search />
+        
         <CustomButtonWrapper>
           <CustomButtons />
         </CustomButtonWrapper>
+
       </Toolbar>
+
     </StyledHeader>
   );
 };
