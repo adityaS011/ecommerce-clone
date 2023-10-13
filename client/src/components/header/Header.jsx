@@ -67,7 +67,7 @@ const Header = () => {
   const list = () => (
     <Box onClick={handleClose}>
       <List>
-        <listItem button>
+        <listItem button key={0}>
           <ResizedNav />
         </listItem>
       </List>
