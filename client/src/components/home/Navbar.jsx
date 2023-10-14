@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Typography, Box, styled } from '@mui/material'; 
 
@@ -27,11 +27,13 @@ const Text = styled(Typography)`
 `;
 
 const NavBar = () => {
+
     return (
         <Component>
             {
-                navData.map(data => (
-                    <Container>
+                navData.map((data, index) => 
+                (
+                    <Container key={index}>
                         <img src={data.url} style={{ width: 64, cursor: 'pointer' } } alt='nav'/>
                         <Text>{data.text}</Text>
                     </Container>
