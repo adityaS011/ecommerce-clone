@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Button, Divider, Box, Typography, styled } from '@mui/material';
 
@@ -73,9 +73,55 @@ const Text = styled(Typography)`
 const Slide = ({ products, title, timer}) => {
     const timerURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg';
 
-    const renderer = ({ hours, minutes, seconds }) => {
-        return <Box variant="span">{hours} : {minutes} : {seconds}  Left</Box>;
+    const renderer = ({ hours, minutes, seconds, completed }) => {
+        if (completed) {
+            // Countdown has completed
+            return <Box variant="span">Deal Expired</Box>;
+        } 
+        else {
+         return (
+             <Box variant="span">
+              {hours.toString().padStart(2, '0')} : {minutes.toString().padStart(2, '0')} : {seconds.toString().padStart(2, '0')} Left
+             </Box>
+         );
+        }
     };
+
+
+    const [countdownTime, setCountdownTime] = useState(() => {
+
+        // Initialize the countdown time from local storage or generate a new random time
+    
+        const storedCountdownTime = localStorage.getItem('countdownTime');
+    
+        if (storedCountdownTime) {
+            return parseInt(storedCountdownTime, 10);
+        } 
+        else {
+            const newCountdownTime =
+                Date.now() + (3600000 + Math.random() * 43200000); // 1 hour = 3600000 milliseconds, 13 hours = 43200000 milliseconds
+            localStorage.setItem('countdownTime', newCountdownTime.toString());
+            return newCountdownTime;
+        }
+    });
+
+
+    useEffect(() => {
+
+        // Check if the countdown time has already expired
+    
+        const now = Date.now();
+    
+        if (now > countdownTime) {
+            // Generate a new random countdown time
+            const newCountdownTime =
+                now + (3600000 + Math.random() * 43200000);
+            setCountdownTime(newCountdownTime);
+            localStorage.setItem('countdownTime', newCountdownTime.toString());
+        }
+    }, [countdownTime]);
+
+
     
     return (
         <Component>
@@ -84,7 +130,7 @@ const Slide = ({ products, title, timer}) => {
                 {
                     timer && <Timer>
                                 <img src={timerURL} style={{ width: 24 }} alt='time clock' />
-                                <Countdown date={Date.now() + 5.04e+7} renderer={renderer} />
+                                <Countdown date={countdownTime} renderer={renderer} />
                         </Timer>
                 }
                 <ViewAllButton variant="contained" color="primary">View All</ViewAllButton>
