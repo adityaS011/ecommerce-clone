@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 import { Box, Typography, Button, Grid, styled } from '@mui/material';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
+import { removeFromCart } from '../../redux/actions/cartActions';
+// import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
 
 import TotalView from './TotalView';
 import EmptyCart from './EmptyCart';
@@ -51,28 +52,29 @@ const StyledButton = styled(Button)`
 
 const Cart = () => {
     const cartDetails = useSelector(state => state.cart);
-    const { cartItems } = cartDetails;
-    const { id } = useParams();
+    let { cartItems } = cartDetails;
 
     const dispatch = useDispatch();
     
-    useEffect(() => {
-        if(cartItems && id !== cartItems.id)   
-            dispatch(addToCart(id));
-    }, [dispatch, cartItems, id]);
+    // useEffect(() => {
+    //     if(cartItems && id !== cartItems.id)  {
+    //         dispatch(addToCart(id));
+    //     } 
+    // }, [dispatch, cartItems, id]);
 
     const removeItemFromCart = (id) => {
         dispatch(removeFromCart(id));
     }
 
-     const buyNow = async () => {
+    const buyNow = async () => {
         let response = await payUsingPaytm({ amount: 500, email: 'adityasinghtech011@gmail.com'});
         var information = {
             action: 'https://securegw-stage.paytm.in/order/process',
          params: response    
          }
         post(information);
-     }
+    }
+
 
     return (
         <>
@@ -82,10 +84,13 @@ const Cart = () => {
                     <Header>
                         <Typography style={{fontWeight: 600, fontSize: 18}}>My Cart ({cartItems?.length})</Typography>
                     </Header>
-                        {   cartItems.map(item => (
-                                <CartItem item={item} removeItemFromCart={removeItemFromCart}/>
+                        <div>
+
+                        {   cartItems.map((item, index) => (
+                                <CartItem key={index} item={item} removeItemFromCart={removeItemFromCart}/>
                             ))
                         }
+                        </div>
                     <BottomWrapper>
                         {/* */}
                         <StyledButton  onClick={() => buyNow()} variant="contained">Place Order</StyledButton>

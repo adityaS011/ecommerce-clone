@@ -33,9 +33,6 @@ const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
 const URL= process.env.MONGODB_URI || `mongodb://${username}:${password}@ac-hyp4sxs-shard-00-00.hpfbplz.mongodb.net:27017,ac-hyp4sxs-shard-00-01.hpfbplz.mongodb.net:27017,ac-hyp4sxs-shard-00-02.hpfbplz.mongodb.net:27017/ECOMMERCE?ssl=true&replicaSet=atlas-czb3lx-shard-0&authSource=admin&retryWrites=true&w=majority`
-   
-
-
 
 Connection(username, password);
 
