@@ -1,9 +1,9 @@
-import React from "react";
-import { useState, useContext } from "react";
+import React, { useEffect } from "react";
+import { useContext } from "react";
 import { useSelector } from "react-redux";
 import { Box, Typography, Badge, Button, styled } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
-import LoginDialog from "../login/LoginDialog";
+// import LoginDialog from "../login/LoginDialog";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../context/DataProvider";
 import Profile from "./Profile";
@@ -55,7 +55,15 @@ const CustomButtons = () => {
   const { account, setAccount } = useContext(DataContext);
 
   const { cartItems } = useSelector((state) => state.cart);
- 
+  
+  useEffect(()=>{
+    let user = localStorage.getItem('userAccount');
+    if(user){
+      setAccount(user);
+    }
+  }, [account, setAccount])
+
+
   return (
     <Wrapper>
       {account ? (

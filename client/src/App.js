@@ -7,10 +7,12 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import {Box} from '@mui/material';
 import DataProvider from './context/DataProvider';
+
 import DetailView from './components/details/DetailView';
 import LoginDialog from './components/login/LoginDialog';
 
 const App = () => {
+
   return (
     <DataProvider > 
       <BrowserRouter>
@@ -21,7 +23,6 @@ const App = () => {
           <Route path="/product/:id" element={<DetailView/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/login" element={<LoginDialog></LoginDialog>}/>
-          
       </Routes>
       </Box>
       </BrowserRouter>
