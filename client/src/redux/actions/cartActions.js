@@ -3,6 +3,7 @@ import axios from 'axios';
 
 
 const URL =  "https://mern-flipkart-clone.onrender.com";
+
 export const addToCart = (id, quantity) => async (dispatch,getState) => {
     try { 
         const { data } = await axios.get(`${URL}/product/${id}`);
@@ -24,3 +25,33 @@ export const removeFromCart = (id) => (dispatch,getState) => {
 
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 };
+
+export const updateQuantityIncrement = (id, quantity) => async (dispatch, getState) => {
+   
+    try{
+        quantity += 1;
+        const { data } = await axios.get(`${URL}/product/${id}`);
+        dispatch({ type: actionTypes.UPDATE_CART_ITEM, payload: { ...data, quantity } });
+        localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
+    }
+    catch(err){
+        console.log(err);
+    }
+
+}
+
+export const updateQuantityDecrement = (id, quantity) => async (dispatch, getState) => {
+   
+    try{
+        if(quantity !== 1){
+            quantity -= 1;
+        }
+        const { data } = await axios.get(`${URL}/product/${id}`);
+        dispatch({ type: actionTypes.UPDATE_CART_ITEM, payload: { ...data, quantity } });
+        localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
+    }
+    catch(err){
+        console.log(err);
+    }
+
+}

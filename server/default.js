@@ -3,10 +3,8 @@ import Product from './model/product-schema.js';
 
 
 const DefaultData = async()=>{
-    try {
-       
+    try {   
         await Product.insertMany(products);
-
         console.log('Data imported successfuly');
     } catch (error) {
         console.log('Error while inserting data:', error.message);  

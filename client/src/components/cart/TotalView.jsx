@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import { Box, Typography, styled } from '@mui/material';
 
@@ -44,22 +44,26 @@ const Discount = styled(Typography)`
 
 
 const TotalView = ({ cartItems }) => {
+
     const [price, setPrice] = useState(0);
     const [discount, setDiscount] = useState(0)
-
-    useEffect(() => {
-        totalAmount();
-    }, [cartItems]);
     
     const totalAmount = () => {
         let price = 0, discount = 0;
         cartItems.map(item => {
-            price += item.price.mrp;
+            price += item.price.mrp * item.quantity;
             discount += (item.price.mrp - item.price.cost); 
-    });
+            return item
+        });
+
         setPrice(price);
         setDiscount(discount);
     }
+    const totalAmountCallback = useCallback(totalAmount, [cartItems]);
+
+    useEffect(() => {
+        totalAmountCallback();
+    }, [cartItems, totalAmountCallback]);
 
     return (
         <Box>  {/* className={classes.component}> */}
@@ -76,9 +80,9 @@ const TotalView = ({ cartItems }) => {
                 <Typography>Delivery Charges
                     <Price component="span">₹40</Price>
                 </Typography>
-                <TotalAmount>Total Amount
-                    <Price>₹{price - discount + 40}</Price>
-                </TotalAmount>
+
+                <TotalAmount>Total Amount <Price component="span">₹{price - discount + 40}</Price> </TotalAmount>
+
                 <Discount>You will save ₹{discount - 40} on this order</Discount>
             </Container>
         </Box>

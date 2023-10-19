@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import {
-  Dialog,
+  // Dialog,
   Box,
   styled,
   TextField,
@@ -11,11 +11,12 @@ import {
 import { authenticateSignup, authenticateLogin } from "../../service/api";
 import { DataContext } from "../../context/DataProvider";
 import Contact from "../home/Contact";
+import { useNavigate } from "react-router-dom";
 
-const Component = styled(Box)`
-  height: 100vh;
-  width: 100vh;
-`;
+// const Component = styled(Box)`
+//   height: 100vh;
+//   width: 100vh;
+// `;
 const Image = styled(Box)`
   background: #2874f0
     url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png)
@@ -116,6 +117,7 @@ const LoginDialog = () => {
   const [isMobileView, setIsMobileView] = useState(false);
 
   const { setAccount } = useContext(DataContext);
+  const navigate = useNavigate();
 
   const handleWindowResize = () => {
     // Check the window width and set isMobileView accordingly
@@ -133,11 +135,11 @@ const LoginDialog = () => {
     };
   }, []);
 
-  const handleClose = () => {
-    toggleAccount(accountInitialValues.login);
-    window.location = "/";
-    setError(false);
-  };
+  // const handleClose = () => {
+  //   toggleAccount(accountInitialValues.login);
+  //   window.location = "/";
+  //   setError(false);
+  // };
   const toggleSignup = () => {
     toggleAccount(accountInitialValues.signup);
   };
@@ -153,7 +155,7 @@ const LoginDialog = () => {
     if (!response) return;
 
     setAccount(signup.firstname);
-    window.location = "/";
+    navigate("/");
   };
   const onValueChange = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
@@ -162,14 +164,26 @@ const LoginDialog = () => {
     let response = await authenticateLogin(login);
 
     if (response.status === 200) {
-      handleClose();
-      setAccount(response.data.data.firstname);
-      window.location = "/";
+      setAccount(prev=>String(response.data.data.firstname).toUpperCase());
+      setError(false);
+      localStorage.setItem('userAccount', String(response.data.data.firstname).toUpperCase())
+      navigate("/")
     } else {
       setError(true);
     }
   };
 
+  
+  // useEffect(()=>{
+  //   let user = localStorage.getItem('userAccount');
+  //   // console.log(user);
+  //   if(user !== null){
+  //     setAccount(user);
+  //     navigate("/")
+  //   }
+  // }, [])
+
+  
   return (
     <div>
       <div
