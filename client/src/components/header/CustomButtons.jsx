@@ -67,10 +67,12 @@ const CustomButtons = () => {
   return (
     <Wrapper>
       {account ? (
-        <Profile account={account} setAccount={setAccount} />
+        <Profile account={account} setAccount={setAccount}/>
       ) : (
-        <LoginButton variant="contained" onClick={() =>window.location="/login" }>
-          Login
+        <LoginButton variant="contained">
+          <Link to={'login'}>
+            Login
+          </Link>
         </LoginButton>
       )}
 
