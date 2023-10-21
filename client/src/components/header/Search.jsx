@@ -51,14 +51,18 @@ const Search = () => {
   const {products}= useSelector(state=>state.getProducts);
   const dispatch = useDispatch();
 
-    useEffect(() => {
+  useEffect(() => {
+    if(!products ){
       dispatch(getProducts());
-    }, [dispatch])
+    } 
+  }, [dispatch])
     
   const getText = (text) => {
       setText(text);
       setOpen(false)
   }
+
+  
   return (
     <SearchContainer>
     <InputSearchBase

@@ -6,8 +6,8 @@ export const getProductsReducer=(state= {products: []}, action)=>{
             return { products: action.payload}
         case actionType.GET_PRODUCTS_FAIL:
             return { error: action.payload }
-            default:
-                return state;
+        default:
+            return state;
     }
     
 }
@@ -31,4 +31,34 @@ export const getProductDetailsReducer = (state = { product: {}}, action) => {
         default:
             return state
     }
+}
+
+export const getProductByTagReducer=(state= {products: [],loading: false,error: null}, action)=>{
+    switch(action.type){
+        case actionType.GET_PRODUCTS_REQUEST:
+            return {
+              ...state,
+              loading: true,
+              error: null,
+            };
+      
+          case actionType.GET_PRODUCTS_SUCCESS:
+            return {
+              ...state,
+              products: action.payload,
+              loading: false,
+              error: null,
+            };
+      
+          case actionType.GET_PRODUCTS_FAIL:
+            return {
+              ...state,
+              loading: false,
+              error: action.payload,
+            };
+      
+          default:
+            return state;
+    }
+    
 }
