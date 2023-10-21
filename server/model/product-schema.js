@@ -13,8 +13,11 @@ const productSchema = new mongoose.Schema({
     quantity: Number,
     description: String,
     discount: String,
-    tagline: String
-
+    tagline: String,
+    tags: {
+        type: [String], // Assuming it's an array of strings
+        default: ["flipkart",""],
+    }
 }
 );
 
