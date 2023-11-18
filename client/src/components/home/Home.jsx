@@ -60,7 +60,7 @@ const Home = () => {
           multi={true}
         />
 
-        <Contact></Contact>
+        {/* <Contact></Contact> */}
       </Component>
     </>
   )
