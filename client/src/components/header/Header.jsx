@@ -15,10 +15,19 @@ import ResizedNav from "./ResizedNav";
 import { Menu } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
-const StyledHeader = styled(AppBar)`
-  background: #2874f0;
-  height: 55px;
-`;
+const StyledHeader = styled(AppBar)(({ theme }) => ({
+  background: "#2874f0",
+  height: 55,
+  [theme.breakpoints.down("md")]: {
+    width: "100%", 
+    paddingLeft: 24,
+    paddingRight: 24,
+  },
+  position: "relative",
+  zIndex: 1100,
+  top: 0,
+}));
+
 const Component = styled(Link)`
   margin-left: 12%;
   line-height: 0;
