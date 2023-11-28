@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 
 export const LoginContext = createContext(null);
 
-const ContextProvider = ({children}) => {
+const DataProvider = ({children}) => {
 
     const [ account, setAccount ] = useState('');
     
@@ -13,4 +13,4 @@ const ContextProvider = ({children}) => {
     )
 }
 
-export default ContextProvider;
+export default DataProvider;
