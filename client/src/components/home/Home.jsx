@@ -9,7 +9,6 @@ import { getProducts } from '../../redux/actions/productAction';
 import { Box, styled } from '@mui/material';
 import MidSlide from "./MidSlide";
 import MidSection from './MidSection';
-import Contact from './Contact';
 
 const Component = styled(Box)`
   padding: 10px;
@@ -59,8 +58,6 @@ const Home = () => {
           timer={false}
           multi={true}
         />
-
-        {/* <Contact></Contact> */}
       </Component>
     </>
   )
