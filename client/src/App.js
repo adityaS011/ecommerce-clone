@@ -9,7 +9,6 @@ import {Box} from '@mui/material';
 import DataProvider from './context/DataProvider';
 
 import DetailView from './components/details/DetailView';
-import LoginDialog from './components/login/LoginDialog';
 import ItemPage from './components/Items/ItemList';
 
 const App = () => {
