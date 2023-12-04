@@ -65,24 +65,18 @@ const Header = () => {
   return (
     <StyledHeader>
       <Toolbar style={{ minHeight: 55 }}>
-      <MenuButton
-                    color="inherit"
-                    onClick={handleOpen}
-                >
-                    <Menu />
-                </MenuButton>
+        <MenuButton color="inherit" onClick={handleOpen}>
+          <Menu />
+        </MenuButton>
 
-                <Drawer open={open} onClose={handleClose}>
-                    {list()}
-                </Drawer>
-        <Component to='/'>
+        <Drawer open={open} onClose={handleClose}>
+          {list()}
+        </Drawer>
+        <Component to="/">
           <img src={logoURL} alt="logo" style={{ width: 75 }} />
-          <Box style={{ display: 'flex' }}>
-            <SubHeading>Explore&nbsp;
-              <Box component='span' style={{ color: '#ffe500' }}>Plus</Box>
-            </SubHeading>
+          <Box style={{ display: "flex" }}>
+	@@ -95,11 +97,15 @@ const Header = () => {
             <PlusImage src={subURL} alt="sub-logo" />
-
           </Box>
         </Component>
         <Search />
@@ -91,7 +85,7 @@ const Header = () => {
         </CustomButtonWrapper>
       </Toolbar>
     </StyledHeader>
-  )
-}
+  );
+};
 
 export default Header;
