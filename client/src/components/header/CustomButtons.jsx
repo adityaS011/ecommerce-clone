@@ -44,32 +44,36 @@ height:32px;
 
 
 const CustomButtons = () => {
-    const { account, setAccount } = useContext(DataContext);
+    
     const [open, setOpen] = useState(false);
-    const {cartItems} = useSelector(state => state.cart);
-    const openDialog =()=>{
+    const { account, setAccount } = useContext(LoginContext);
+
+    const cartDetails = useSelector(state => state.cart);
+    const { cartItems } = cartDetails;
+
+    const openDialog = () => {
         setOpen(true);
     }
+
     return (
         <Wrapper>
             {
-                account? <Profile account={account} setAccount={setAccount}/> :
-                <LoginButton variant="contained" onClick={()=> openDialog()}>Login</LoginButton>
-
+                account ? <Profile account={account} setAccount={setAccount} /> :
+                    <LoginButton variant="contained" onClick={() => openDialog()}>Login</LoginButton>
+                
             }
+            <Typography style={{ marginTop: 3, width: 135 }}>Become a Seller</Typography>
+            <Typography style={{ marginTop: 3 }}>More</Typography>
             
-            <Typography style={{marginTop: 3, width: 135}}>Become a seller</Typography>
-            <Typography style={{marginTop: 3}}>More</Typography>
-
             <Container to='/cart'>
-                <Badge badgeContent={cartItems?.length} color="secondary" style={{color: 'red'}}>
-                <ShoppingCart  style={{color: 'white'}} />
+                <Badge badgeContent={cartItems?.length} color="secondary">
+                    <ShoppingCart />
                 </Badge>
-                <Typography style={{marginLeft:'5px'}}>Cart</Typography>
+                <Typography style={{ marginLeft: 10 }}>Cart</Typography>
             </Container>
-            <LoginDialog open={open} setOpen={setOpen}/>
+            <LoginDialog open={open} setOpen={setOpen} setAccount={setAccount} />
         </Wrapper>
-    );
+    )
 }
 
 export default CustomButtons;
