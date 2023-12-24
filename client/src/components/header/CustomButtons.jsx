@@ -1,46 +1,58 @@
-import React from 'react';
-import { useState, useContext } from 'react';
-import { useSelector } from 'react-redux';
-import { Box, Typography,Badge,  Button, styled } from '@mui/material';
-import { ShoppingCart } from '@mui/icons-material';
-import LoginDialog from '../login/LoginDialog';
-import { Link } from 'react-router-dom';
-import { DataContext } from '../../context/DataProvider';
-import Profile from './Profile';
+import React, { useState, useContext } from 'react';
 
-const Wrapper = styled(Box)(({ theme }) => ({
-    margin: '0 2% 0 auto',
-    display: 'flex',
-    '& > *': {
-        marginRight: '40px !important',
-        fontSize: 16,
-        alignItems: 'center',
-   
-    },
-    [theme.breakpoints.down('md')]: {
-        display: 'block',
-    }
-}));
+import { Box, Typography, Badge, Button, styled } from '@mui/material';
+import { ShoppingCart } from '@mui/icons-material';
+
+import { Link } from 'react-router-dom';
+import { LoginContext } from '../../context/ContextProvider';
+import { useSelector } from 'react-redux';
+
+import Profile from './Profile';
+import LoginDialog from '../login/LoginDialog';
 
 const Container = styled(Link)(({ theme }) => ({
-    textDecoration: 'none',
-    color: 'inherit',
     display: 'flex',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
         display: 'block'
     }
 }));
-const LoginButton = styled(Button)`
-color: #2874f0;
-background: #ffffff;
-text-transform: none;
-padding: 5px 40px;
-border-radius: 2px;
-box-shadow: none;
-font-weight: 600;
-height:32px;
 
-`
+const Wrapper = styled(Box)(({ theme }) => ({
+    margin: '0 3% 0 auto',
+    display: 'flex',
+    '& > *': {
+        marginRight: '40px !important',
+        textDecoration: 'none',
+        color: '#FFFFFF',
+        fontSize: 12,
+        alignItems: 'center',
+        [theme.breakpoints.down('sm')]: {
+            color: '#2874f0',
+            alignItems: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            marginTop: 10
+        }
+    },
+    [theme.breakpoints.down('sm')]: {
+        display: 'block'
+    }
+}));
+
+const LoginButton = styled(Button)(({ theme }) => ({
+    color: '#2874f0',
+    background: '#FFFFFF',
+    textTransform: 'none',
+    fontWeight: 600,
+    borderRadius: 2,
+    padding: '5px 40px',
+    height: 32,
+    boxShadow: 'none',
+    [theme.breakpoints.down('sm')]: {
+        background: '#2874f0',
+        color: '#FFFFFF'
+    }
+}));
 
 
 const CustomButtons = () => {
