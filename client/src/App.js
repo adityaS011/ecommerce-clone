@@ -6,7 +6,7 @@ import Cart from './components/cart/Cart';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import {Box} from '@mui/material';
-import DataProvider from './context/DataProvider';
+import ContextProvider from './context/ContextProvider';
 
 import DetailView from './components/details/DetailView';
 import ItemPage from './components/Items/ItemList';
@@ -14,7 +14,7 @@ import ItemPage from './components/Items/ItemList';
 const App = () => {
 
   return (
-    <DataProvider > 
+    <ContextProvider > 
       <BrowserRouter>
       <Header/>
       <Box style={{marginTop: 54}}>
@@ -26,7 +26,7 @@ const App = () => {
         </Routes>
       </Box>
       </BrowserRouter>
-    </DataProvider>
+    </ContextProvider>
 
     );
 }
