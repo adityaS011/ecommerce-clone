@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { Typography, Box, styled } from '@mui/material'; 
 

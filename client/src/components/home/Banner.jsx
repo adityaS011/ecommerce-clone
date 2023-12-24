@@ -4,7 +4,6 @@ import { styled } from '@mui/material';
 import 'react-multi-carousel/lib/styles.css';
 import { bannerData } from '../../constant/data';
 import Carousel from 'react-multi-carousel';
-import { convertLength } from '@mui/material/styles/cssUtils';
 
 const responsive = {
     desktop: {

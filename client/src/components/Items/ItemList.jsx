@@ -1,6 +1,6 @@
 import {  useEffect } from 'react';
 
-import { styled, Box, Typography, Grid } from '@mui/material';
+import { styled, Grid } from '@mui/material';
 
 import ItemDetails from './ItemDetails';
 

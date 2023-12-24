@@ -55,7 +55,7 @@ const Search = () => {
     if(!products ){
       dispatch(getProducts());
     } 
-  }, [dispatch])
+  }, [dispatch,products])
     
   const getText = (text) => {
       setText(text);
