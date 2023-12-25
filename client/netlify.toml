@@ -1,0 +1,4 @@
+[build]
+  command = "npm install --legacy-peer-deps && npm run build"
+  publish = "src"  # or the folder where your build artifacts are
+  environment = { NODE_ENV = "production" }
