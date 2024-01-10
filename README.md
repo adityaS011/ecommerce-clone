@@ -1,4 +1,4 @@
-<h1>Flipkart Clone Project - MERN Stack</h1>
+#Flipkart Clone Project - MERN Stack
 ![Filpkart Clone SS](https://github.com/adityaS011/ecommerce-clone/blob/main/flipkartclone.png)
 
 <body>
