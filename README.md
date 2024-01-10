@@ -6,7 +6,7 @@
 <body>
   <h1>Flipkart Clone Project - MERN Stack</h1>
   <p>This is a Flipkart clone project developed using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The project consists of two main folders: <code>client</code> and <code>server</code>, representing the front-end and back-end components respectively. Redux is used for state management, and Material-UI is utilized for building the user interface. The project is hosted on Netlify for the client-side and on another platform (e.g., Heroku) for the server-side.</p>
-
+![Filpkart Clone SS](https://github.com/adityaS011/ecommerce-clone/blob/main/flipkartclone.png)
   <h2>Project Structure</h2>
   <pre>
   flipkart-clone/
